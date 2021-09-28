@@ -48,16 +48,21 @@ function resetGrid() {
     const rows = document.querySelectorAll('.rows');
     rows.forEach(row => container.removeChild(row));
 
-    // document.querySelector('body').removeChild(container);
-
     let size;
     do {
         size = prompt('provide a size (100 max.)', 0);
     }
     while (size > 100);
 
-    // draw the grid
-    createGrid(size);
+    if (size == null) {
+        container.style.visibility = 'hidden';
+    }
+    else {
+        container.style.visibility = 'visible';
+        // draw the grid
+        createGrid(size);
+
+    }
 }
 
 
